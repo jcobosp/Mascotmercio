@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+
+  <body>
+    <div th:replace="~{layouts/navBar_NotLogged :: navBar_NotLogged}"></div>
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div
+          class="page-header d-flex align-items-center"
+          style="background-image: url('assets/img/mascotas/iniciar-sesion.png')"
+        >
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Iniciar sesión</h2>
+                <p>
+                  Inicia sesión en la comunidad de Mascotmercio.<br />
+                  Descubre los mejores establecimientos pet friendly cerca de ti y disfruta de todos nuestros
+                  servicios diseñados para ti y tu mascota.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="index_NotLogged">Inicio</a></li>
+              <li>Iniciar sesión</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+
+      <!-- ======= Get a Quote Section ======= -->
+      <section id="ini-sesion" class="ini-sesion">
+        <div class="container" data-aos="fade-up">
+          <div class="row g-0">
+            <div
+              class="col-lg-5 quote-bg"
+              style="background-image: url(assets/img/mascotas/fondo-formulario-iniciar-sesion.png)"
+            ></div>
+            <div class="col-lg-7">
+              <form style="margin: 10px" th:action="@{/userLogin}" method="POST">
+                <h3>Inicia sesión</h3>
+                <p>Introduce tus credenciales para iniciar sesión en tu cuenta.</p>
+                <div class="row gy-4">
+                  <div class="col-md-12">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Nombre de usuario" required />
+                  </div>
+                  <div class="col-md-12">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required />
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <input name="submit" type="submit" id="botonInicioSesion" value="Iniciar Sesión" class="btn btn-primary" />
+                  </div>
+
+                  <!-- <div class="col-md-12 text-center">
+                    <p>O</p>
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="btn-google">
+                      <img src="assets/img/mascotas/google.svg" alt="Google Logo" class="google-logo" />
+                      Iniciar sesión con Google
+                    </button>
+                  </div> -->
+                  <br />
+                  <br />
+                  <div class="col-md-12 text-center">
+                    <p>¿No tienes una cuenta? <a href="registrarse">Regístrate</a></p>
+                  </div>
+                  <div class="info-note">
+                    <p>
+                      Para poder registrar un establecimiento, es necesario iniciar sesión con una cuenta de
+                      dueño de establecimiento.
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Quote Form -->
+          </div>
+        </div>
+      </section>
+      <!-- End Get a Quote Section -->
+    </main>
+    <!-- End #main -->
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

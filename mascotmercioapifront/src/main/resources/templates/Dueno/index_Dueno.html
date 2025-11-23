@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+  <body>
+    <div th:replace="~{layouts/navBar_Dueno :: navBar_Dueno}"></div>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+      <div class="container">
+        <div class="row gy-4 d-flex justify-content-between">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h2 data-aos="fade-up">Tu Compañero de Ocio con Mascotas</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+              Encuentra establecimientos que acepten mascotas y disfruta de momentos de ocio con tus amigos
+              peludos. Mascotmercio te ofrece una amplia selección de lugares donde podrás pasar tiempo junto
+              a tu mascota.
+            </p>
+
+            <form
+              method="GET"
+              action="/establecimientos_Dueno"
+              class="form-search d-flex align-items-stretch mb-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <input type="text" name="codigoPostal" class="form-control" placeholder="Código Postal" />
+              <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="433"
+                    data-purecounter-duration="1"
+                    class="purecounter"
+                  ></span>
+                  <p>Locales</p>
+                </div>
+              </div>
+              <!-- End Stats Item -->
+
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="1524"
+                    data-purecounter-duration="1"
+                    class="purecounter"
+                  ></span>
+                  <p>Clientes</p>
+                </div>
+              </div>
+              <!-- End Stats Item -->
+
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="12"
+                    data-purecounter-duration="1"
+                    class="purecounter"
+                  ></span>
+                  <p>Animales</p>
+                </div>
+              </div>
+              <!-- End Stats Item -->
+
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="7"
+                    data-purecounter-duration="1"
+                    class="purecounter"
+                  ></span>
+                  <p>Países</p>
+                </div>
+              </div>
+              <!-- End Stats Item -->
+            </div>
+          </div>
+
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <img
+              src="assets/img/mascotas/portada-final-removebg-preview.png"
+              class="img-fluid mb-3 mb-lg-0"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <main id="main">
+      <!-- ======= Featured Services Section ======= -->
+      <section id="featured-services" class="featured-services">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
+              <div class="icon flex-shrink-0"><i class="bi bi-shop"></i></div>
+              <div>
+                <h4 class="title">Establecimientos Pet-Friendly</h4>
+                <p class="description">
+                  Encuentra una amplia variedad de establecimientos que aceptan mascotas, desde cafeterías
+                  hasta tiendas, donde tú y tu compañero peludo sois bienvenidos.
+                </p>
+                <a href="establecimientos_Dueno" class="readmore stretched-link"
+                  ><span>Ver más</span><i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon flex-shrink-0">
+                <i class="bi bi-card-checklist"></i>
+              </div>
+              <div>
+                <h4 class="title">Explora y descubre</h4>
+                <p class="description">
+                  Descubre nuevos lugares para disfrutar con tu mascota y crea recuerdos inolvidables juntos
+                  explorando la ciudad.
+                </p>
+                <a href="mapa_Dueno" class="readmore stretched-link"
+                  ><span>Ver más</span><i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon flex-shrink-0">
+                <i class="bi bi-emoji-smile"></i>
+              </div>
+              <div>
+                <h4 class="title">Experiencias únicas</h4>
+                <p class="description">
+                  Crea momentos especiales con tu mascota al encontrar lugares adaptados para ustedes, donde
+                  ambos puedan relajarse y disfrutar juntos.
+                </p>
+                <a href="mapa_Dueno" class="readmore stretched-link"
+                  ><span>Ver más</span><i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <!-- End Service Item -->
+          </div>
+        </div>
+      </section>
+      <!-- End Featured Services Section -->
+
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about pt-0">
+        <div class="container" data-aos="fade-up">
+          <div class="row gy-4">
+            <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+              <img src="assets/img/mascotas/foto-video.png" class="img-fluid" alt="" />
+              <a href="https://www.error.com" class="glightbox play-btn"></a>
+            </div>
+            <div class="col-lg-6 content order-last order-lg-first">
+              <h3>Acerca de Mascotmercio</h3>
+              <p>
+                Mascotmercio es una plataforma diseñada para ayudarte a encontrar los mejores lugares para
+                disfrutar con tu mascota. Nuestro objetivo es facilitar experiencias únicas y emocionantes
+                para ti y tu amigo peludo.
+              </p>
+              <ul>
+                <li data-aos="fade-up" data-aos-delay="100">
+                  <i class="bi bi-check"></i>
+                  <div>
+                    <h5>Encuentra Establecimientos Pet-Friendly</h5>
+                    <p>Explora una amplia gama de opciones de ocio donde las mascotas son bienvenidas.</p>
+                  </div>
+                </li>
+                <li data-aos="fade-up" data-aos-delay="200">
+                  <i class="bi bi-check"></i>
+                  <div>
+                    <h5>Crea Recuerdos Inolvidables</h5>
+                    <p>Descubre nuevos lugares y crea momentos especiales junto a tu mascota.</p>
+                  </div>
+                </li>
+                <li data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-check"></i>
+                  <div>
+                    <h5>Disfruta de Experiencias Únicas</h5>
+                    <p>Encuentra lugares adaptados para disfrutar al máximo con tu compañero peludo.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Us Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="service" class="services pt-0">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <span>Nuestros Servicios</span>
+            <h2>Explora las Opciones para Ti y tu Mascota</h2>
+          </div>
+
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/mascotas/paseo-perro.png" alt="" class="img-fluid" />
+                </div>
+                <h3>
+                  <a class="stretched-link">Paseo de Perros</a>
+                </h3>
+                <p>
+                  Disfruta de un agradable paseo con tu mascota y explora los parques y senderos de la ciudad.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/mascotas/servicio-cafe.png" alt="" class="img-fluid" />
+                </div>
+                <h3>
+                  <a class="stretched-link">Cafeterías Pet-Friendly</a>
+                </h3>
+                <p>
+                  Relájate en una cafetería acogedora donde puedes disfrutar de un café con tu mascota a tu
+                  lado.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/mascotas/salon-belleza-servicio.png" alt="" class="img-fluid" />
+                </div>
+                <h3>
+                  <a class="stretched-link">Salones de Belleza Canina</a>
+                </h3>
+                <p>
+                  Mima a tu peludo amigo con una sesión de grooming en un salón especializado en cuidado de
+                  mascotas.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/mascotas/bar-canino-servicio.png" alt="" class="img-fluid" />
+                </div>
+                <h3>
+                  <a class="stretched-link">Bares Pet-Friendly</a>
+                </h3>
+                <p>Pasa un rato agradable con amigos y mascotas en un bar donde todos son bienvenidos.</p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/mascotas/entrenamiento-servicio.png" alt="" class="img-fluid" />
+                </div>
+                <h3>
+                  <a class="stretched-link">Entrenamiento Canino</a>
+                </h3>
+                <p>
+                  Aprende nuevas habilidades y fortalece el vínculo con tu mascota a través de sesiones de
+                  entrenamiento personalizadas.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/mascotas/veterinario-servicio.png" alt="" class="img-fluid" />
+                </div>
+                <h3>
+                  <a class="stretched-link">Servicios Veterinarios</a>
+                </h3>
+                <p>
+                  Mantén a tu mascota saludable con servicios veterinarios de calidad y atención
+                  especializada.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+      <!-- ======= Call To Action Section ======= -->
+      <section id="call-to-action" class="call-to-action">
+        <div class="container" data-aos="zoom-out">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h3>Únete a Mascotmercio y atrae más clientes</h3>
+              <p>
+                Promociona tu establecimiento en nuestra plataforma y crea un ambiente acogedor para los
+                dueños de mascotas. ¡Haz que tu negocio sea pet-friendly hoy mismo!
+              </p>
+              <!-- ////////////////////////////////////////////////////////////////////////////////// -->
+              <a class="cta-btn" href="establecimiento_detalles.html">REGISTRA TU ESTABLECIMIENTO</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Call To Action Section -->
+
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features">
+        <div class="container">
+          <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+            <div class="col-md-5">
+              <img src="assets/img/mascotas/ambiente-amigable.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-md-7">
+              <h3>Promueve un ambiente amigable para mascotas</h3>
+              <p class="fst-italic">
+                Haz que tu establecimiento sea un lugar donde las mascotas sean bienvenidas. Atrae a más
+                clientes al crear un ambiente acogedor y pet-friendly.
+              </p>
+              <ul>
+                <li>
+                  <i class="bi bi-check"></i> Aumenta el flujo de clientes al permitir que las mascotas
+                  acompañen a sus dueños.
+                </li>
+                <li>
+                  <i class="bi bi-check"></i> Mejora la reputación de tu negocio al ser reconocido como
+                  pet-friendly.
+                </li>
+                <li>
+                  <i class="bi bi-check"></i> Genera una atmósfera positiva y familiar que anime a los
+                  clientes a quedarse más tiempo.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Features Item -->
+
+          <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+            <div class="col-md-5 order-1 order-md-2">
+              <img src="assets/img/mascotas/promociones-mascota.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-md-7 order-2 order-md-1">
+              <h3>Ofrece Promociones especiales para clientes con mascotas</h3>
+              <p class="fst-italic">
+                Atrae a nuevos clientes al ofrecer promociones especiales para aquellos que visiten tu
+                establecimiento con sus mascotas.
+              </p>
+              <p>
+                Haz que tus clientes se sientan valorados al proporcionarles ofertas exclusivas y descuentos
+                al venir acompañados de sus mascotas.
+              </p>
+            </div>
+          </div>
+          <!-- Features Item -->
+
+          <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+            <div class="col-md-5">
+              <img src="assets/img/mascotas/dueños.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-md-7">
+              <h3>Interactúa con una comunidad de dueños de mascotas</h3>
+              <p class="fst-italic">
+                Únete a una red de establecimientos pet-friendly y forma parte de una comunidad comprometida
+                con el bienestar de las mascotas.
+              </p>
+              <p>
+                Comparte experiencias, consejos y eventos con otros propietarios de negocios que también
+                valoran la presencia de mascotas en sus locales.
+              </p>
+            </div>
+          </div>
+          <!-- Features Item -->
+
+          <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+            <div class="col-md-5 order-1 order-md-2">
+              <img src="assets/img/mascotas/facil-administracion.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-md-7 order-2 order-md-1">
+              <h3>Personaliza la información de tu establecimiento</h3>
+              <p class="fst-italic">
+                Gestiona y actualiza fácilmente la información de tu negocio en nuestra plataforma para
+                mantener a tus clientes informados y atraer nuevos visitantes.
+              </p>
+              <p>
+                Modifica detalles como horarios de apertura, menús especiales para mascotas, eventos y
+                promociones, todo con un par de clics.
+              </p>
+            </div>
+          </div>
+          <!-- Features Item -->
+        </div>
+      </section>
+      <!-- End Features Section -->
+
+      <!-- ======= Venue Section ======= -->
+      <section id="venue">
+        <div class="container-fluid" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Encuentra el sitio perfecto para ir con tu mascota</h2>
+            <p>¡Encuentra el lugar ideal para disfrutar con tu mascota y otros amantes de los animales!</p>
+          </div>
+
+          <div class="row g-0">
+            <div class="col-lg-6 venue-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452"
+                frameborder="0"
+                style="border: 0"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="col-lg-6 venue-info">
+              <div class="row justify-content-center">
+                <div class="col-11 col-lg-8 position-relative">
+                  <h3>¡Encuentra el establecimiento perfecto para tu mascota y para ti!</h3>
+                  <p>
+                    Busca en el mapa el lugar perfecto para ir con tu animal de compañía y disfrutar de
+                    momentos inolvidables. Explora y descubre locales y sitios diseñados para toda la familia,
+                    incluidos tus amigos peludos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Venue Section -->
+
+      <!-- ======= establecimientos Section ======= -->
+      <section id="establecimientos" class="section-with-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Establecimientos cercanos</h2>
+            <p>Aquí tienes algunos establecimientos cercanos donde tu mascota es bienvenida</p>
+          </div>
+
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6">
+              <div class="establecimientos">
+                <div class="establecimientos-img">
+                  <img
+                    src="assets/img/mascotas/restaurante-perro-chicas.png"
+                    alt="establecimientos 1"
+                    class="img-fluid"
+                  />
+                </div>
+                <h3><a>Bar canino amigable</a></h3>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  ¡Un bar acogedor donde puedes disfrutar de un refresco mientras tu mascota socializa con
+                  otras mascotas!
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="establecimientos">
+                <div class="establecimientos-img">
+                  <img
+                    src="assets/img/mascotas/boutique-mascota.png"
+                    alt="establecimientos 2"
+                    class="img-fluid"
+                  />
+                </div>
+                <h3><a>Boutique Pet-Friendly</a></h3>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  ¡Descubre ropa y accesorios para ti y tu mascota en esta boutique donde son bienvenidos los
+                  animales!
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="establecimientos">
+                <div class="establecimientos-img">
+                  <img
+                    src="assets/img/mascotas/libreria-mascotas.png"
+                    alt="establecimientos 3"
+                    class="img-fluid"
+                  />
+                </div>
+                <h3><a>Librería que permite mascotas</a></h3>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill-half-full"></i>
+                </div>
+                <p>
+                  ¡Explora una gran selección de libros mientras tu mascota te acompaña en esta librería
+                  pet-friendly!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End establecimientos Section -->
+
+      <!-- ======= Testimonials Section ======= -->
+      <section id="testimonials" class="testimonials">
+        <div class="container">
+          <div class="slides-1 swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="" />
+                  <h3>Pablo García</h3>
+                  <h4>Dueño de Labrador Retriever</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Me llevé a mi Labrador a este bar con mis amigos y disfrutamos de una buena cerveza
+                    mientras mi perro se lo pasaba genial con el resto de perros en la zona para mascotas.
+                    ¡Además, le pusieron un pedazo de cuenco de agua! Volveremos sin duda.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="" />
+                  <h3>Jia Li</h3>
+                  <h4>Dueña de Gato Persa</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Este café es perfecto para llevar a mi gato persa. El ambiente es acogedor y tranquilo, y
+                    mi gato se relaja completamente en su cama especial mientras disfruto de un delicioso
+                    café. ¡Muy recomendado!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="" />
+                  <h3>Isabel Rodríguez</h3>
+                  <h4>Dueña de Perro Bulldog Francés</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Mi Bulldog Francés y yo nos lo pasamos genial en esta tienda de mascotas. El personal fue
+                    muy amable y nos ayudó a encontrar los mejores productos para él. ¡Sin duda volveremos
+                    pronto!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="" />
+                  <h3>Carlos Martínez</h3>
+                  <h4>Dueño de Conejo enano</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Mi conejo y yo disfrutamos mucho de nuestra visita a esta peluquería para mascotas. El
+                    personal fue muy cariñoso con él y lo dejaron perfectamente arreglado. ¡Nos vamos muy
+                    contentos!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="" />
+                  <h3>Juan Pérez</h3>
+                  <h4>Dueño de Perro Golden Retriever</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Este parque de perros es genial para llevar a mi Golden Retriever a jugar y socializar.
+                    Siempre hay otros perros con los que puede correr y el espacio es seguro. ¡Lo recomiendo a
+                    todos los dueños de perros!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- End Testimonials Section -->
+
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <span>Preguntas frecuentes</span>
+            <h2>Preguntas frecuentes</h2>
+          </div>
+
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-10">
+              <div class="accordion accordion-flush" id="faqlist">
+                <!-- Preguntas para clientes -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-1"
+                    >
+                      <i class="bi bi-question-circle question-icon"></i>
+                      ¿Puedo llevar a mi mascota a todos los establecimientos registrados en la plataforma?
+                    </button>
+                  </h3>
+                  <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      Sí, la mayoría de los establecimientos registrados en nuestra plataforma son
+                      pet-friendly y están diseñados para recibir a tu mascota.
+                    </div>
+                  </div>
+                </div>
+                <!-- # Faq item-->
+
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-2"
+                    >
+                      <i class="bi bi-question-circle question-icon"></i>
+                      ¿Cómo puedo encontrar establecimientos específicos que admitan mascotas de mi tipo?
+                    </button>
+                  </h3>
+                  <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      Puedes utilizar nuestros filtros de búsqueda avanzada para encontrar establecimientos
+                      que sean adecuados para tu tipo de mascota.
+                    </div>
+                  </div>
+                </div>
+                <!-- # Faq item-->
+
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-3"
+                    >
+                      <i class="bi bi-question-circle question-icon"></i>
+                      ¿Cómo puedo dejar una valoración sobre mi experiencia en un establecimiento?
+                    </button>
+                  </h3>
+                  <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      Después de visitar un establecimiento, puedes dejar una valoración y reseña en su página
+                      de perfil dentro de nuestra plataforma. ¡Tu opinión es importante para nosotros!
+                    </div>
+                  </div>
+                </div>
+                <!-- # Faq item-->
+
+                <!-- Preguntas para propietarios de establecimientos -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-4"
+                    >
+                      <i class="bi bi-question-circle question-icon"></i>
+                      ¿Cómo puedo registrar mi establecimiento en la plataforma?
+                    </button>
+                  </h3>
+                  <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      Puedes registrar tu establecimiento completando el formulario de registro en nuestra
+                      página web. Una vez enviado, nuestro equipo revisará tu solicitud y te proporcionará los
+                      siguientes pasos.
+                    </div>
+                  </div>
+                </div>
+                <!-- # Faq item-->
+
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-5"
+                    >
+                      <i class="bi bi-question-circle question-icon"></i>
+                      ¿Qué ventajas obtiene mi establecimiento al formar parte de la plataforma?
+                    </button>
+                  </h3>
+                  <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      Formar parte de nuestra plataforma te permite llegar a una audiencia más amplia de
+                      amantes de las mascotas, lo que puede aumentar la visibilidad y el tráfico a tu
+                      establecimiento. Además, podrás gestionar fácilmente la información de tu
+                      establecimiento y comunicarte con tus clientes.
+                    </div>
+                  </div>
+                </div>
+                <!-- # Faq item-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+    </main>
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+### Usuario
+GET http://localhost:8080/myApi/usuarios
+###
+
+POST http://localhost:8080/myApi/usuarios
+Content-Type: application/json
+
+{
+    "nombreUsuario": "jooooooohndoe",
+    "contraseña": "1234",
+    "nombreCompleto": "John Doe",
+    "email": "johndoe@gmail.com",
+    "telefono": 623486972,
+    "tipoMascota": "Perro",
+    "ciudad": "Madrid",
+    "rol": "Usuario",
+    "establecimientos": []
+}
+###
+
+GET http://localhost:8080/myApi/usuarios/johndoe
+###
+GET http://localhost:8080/myApi/usuarios/jooooooohndoe
+###
+
+PUT http://localhost:8080/myApi/usuarios/johndoe
+Content-Type: application/json
+
+{
+    "nombreUsuario": "johndoe",
+    "contraseña": "1234",
+    "nombreCompleto": "John Doe",
+    "email": "johndoe@gmail.com",
+    "telefono": 623486972,
+    "tipoMascota": "Perrooooooooooooooo",
+    "ciudad": "Madrid",
+    "rol": "Usuario",
+    "establecimientos": []
+}
+###
+
+PATCH http://localhost:8080/myApi/usuarios/johndoe
+Content-Type: application/json
+
+{
+    "tipoMascota": "Gatoooooooo"
+}
+###
+
+DELETE http://localhost:8080/myApi/usuarios/jooooooohndoe
+###
+
+### Establecimiento
+GET http://localhost:8080/myApi/establecimientos
+###
+
+POST http://localhost:8080/myApi/establecimientos
+Content-Type: application/json
+
+{
+    "nombre": "TEST",
+    "email": "crossdog@outlook.com",
+    "pais": "España",
+    "telefono": 669015808,
+    "direccion": null,
+    "codigoPostal": "28000",
+    "ciudad": "",
+    "provincia": null,
+    "descripcion": "Ahora es posible hacer ejercicio mientras juega con su mascota desde el hogar. Somos una empresa de entrenamiento y clases personalizadas online. Ahora no tendrá excusa de sacar tiempo para hacer deporte mientras juega con su amiguito canino.",
+    "serviciosOfrecidos": ["Ejerecicios personalizados", "Rutina adaptada junto a su mascota"],
+    "mascotasAceptadas": ["Perros", "Gatos", "Conejos"],
+    "usuario": null,
+    "valoraciones": null
+}
+###
+GET http://localhost:8080/myApi/establecimientos/10
+###
+
+PUT http://localhost:8080/myApi/establecimientos/10
+Content-Type: application/json
+
+{
+    "nombre": "CrossssssssssssssssssssssDog",
+    "email": "crossdog@outlook.com",
+    "pais": "España",
+    "telefono": 669015808,
+    "direccion": null,
+    "codigoPostal": "28000",
+    "ciudad": "",
+    "provincia": null,
+    "descripcion": "Ahora es posible hacer ejercicio mientras juega con su mascota desde el hogar. Somos una empresa de entrenamiento y clases personalizadas online. Ahora no tendrá excusa de sacar tiempo para hacer deporte mientras juega con su amiguito canino.",
+    "serviciosOfrecidos": ["Ejerecicios personalizados", "Rutina adaptada junto a su mascota"],
+    "mascotasAceptadas": ["Perros", "Gatos", "Conejos"],
+    "usuario": null,
+    "valoraciones": null
+}
+###
+DELETE http://localhost:8080/myApi/establecimientos/12
+
+### Valoracion
+GET http://localhost:8080/myApi/valoraciones
+###
+
+POST http://localhost:8080/myApi/valoraciones
+Content-Type: application/json
+
+{
+    "puntuacion": 3.0,
+    "comentario": "Hello World!",
+    "usuario": "johndoe",
+    "establecimiento": null
+}
+###
+
+GET http://localhost:8080/myApi/valoraciones/6
+###
+
+PUT http://localhost:8080/myApi/valoraciones/6
+Content-Type: application/json
+
+{
+    "puntuacion": 3.0,
+    "comentario": "Helloooooooooooooooooo World!",
+    "usuario": null,
+    "establecimiento": null
+}
+###
+
+DELETE http://localhost:8080/myApi/valoraciones/5

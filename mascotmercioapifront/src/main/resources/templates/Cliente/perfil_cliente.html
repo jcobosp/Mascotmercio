@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+
+  <body>
+    <div th:replace="~{layouts/navBarFija_Cliente :: navBarFija_Cliente}"></div>
+
+    <main id="main">
+      <section id="speakers-details">
+        <div class="container">
+          <div class="section-header">
+            <h2>Perfil del usuario</h2>
+            <p class="clienteStyle">Cliente</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= Agent Single ======= -->
+      <div class="agent-single">
+        <div class="container">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="agent-avatar-box">
+                  <!-- <label class="form-label">Foto de perfil:</label> -->
+                  <img
+                    th:src="'data:image/jpeg;base64,' + ${imagenBase64}"
+                    alt="Foto de perfil"
+                    style="width: 500px; height: 500px; object-fit: cover"
+                    class="agent-avatar img-fluid"
+                  />
+                </div>
+              </div>
+              <div class="col-md-5 section-md-t3">
+                <div class="agent-info-box">
+                  <div class="agent-title">
+                    <div class="title-box-d">
+                      <h3 class="title-d" th:text="${usuario.nombreCompleto}"></h3>
+                    </div>
+                  </div>
+                  <div class="agent-content mb-3">
+                    <div class="info-agents color-a">
+                      <p>
+                        <span class="color-text-a" th:text="${usuario.descripcion}"></span>
+                      </p>
+                      <p>
+                        <strong>Nombre de usuario: </strong>
+                        <span class="color-text-a" th:text="${usuario.nombreUsuario}"></span>
+                      </p>
+                      <p>
+                        <strong>Correo electrónico: </strong>
+                        <span class="color-text-a" th:text="${usuario.email}"></span>
+                      </p>
+                      <p>
+                        <strong>Teléfono: </strong>
+                        <span class="color-text-a" th:text="${usuario.telefono}"></span>
+                      </p>
+                      <p>
+                        <strong>Ciudad: </strong>
+                        <span class="color-text-a" th:text="${usuario.ciudad}"></span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <div class="d-inline-block mr-2">
+                      <form action="editarPerfil_Cliente" method="get">
+                        <button type="submit" class="btn btn-primary">Editar perfil</button>
+                      </form>
+                    </div>
+                    <div class="d-inline-block">
+                      <form th:action="@{/eliminarPerfil_Cliente}" th:method="delete">
+                        <button type="submit" class="btn btn-primary">Eliminar perfil</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

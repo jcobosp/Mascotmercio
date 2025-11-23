@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+    <!-- Enlace al Main CSS -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrUPPlzcgYMMw0C2IbLwo6qHMZP4UgaMQ&callback=initMap"
+    ></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <script src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <div th:replace="~{layouts/navBarFija_Dueno :: navBarFija_Dueno}"></div>
+
+    <main id="main" class="main-page">
+
+        <!-- ======= Speaker Details Sectionn ======= -->
+        <section id="speakers-details">
+          <div class="container">
+            <div class="section-header">
+              <h2 th:text="${establecimiento.nombre}"></h2>
+            </div>
+            <div class="estrellas-contenedor">
+              <!-- <p class="estrellas-texto" th:text="${establecimiento.estrellas}"></p> -->
+              <div class="stars">
+                  <span th:id="'est-stars-' + ${establecimiento.id}" th:data-value="${establecimiento.estrellas}" ></span>
+              </div>
+            </div>
+            
+    
+            <div class="row">
+              <div class="col-md-6">
+                      <img th:src="'data:image/jpeg;base64,' + ${imagenBase64}" alt="Foto del establecimiento" style="width: 500px; height: 450px; object-fit: cover;"/>
+              </div>
+    
+              <div class="col-md-6">
+                <div class="details">
+                  <h2 >Descripción del establecimiento</h2>
+                  <br>
+                  <p th:text="${establecimiento.descripcion}"></p>
+    
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <!-- ======= Property Single ======= -->
+        <div class="property-single nav-arrow-b">
+            <div class="container">
+                
+                        <div class="property-summary">
+                            
+                              <div class="col-sm-12">
+                                <div class="title-box-d section-t4">
+                                  <h3 class="title-d">Información del establecimiento</h3>
+                                </div>
+                              </div>
+                            
+                              <div class="summary-list">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="contact">
+                                            <div class="property-info-item">
+                                                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                                <div>
+                                                    <h4>Dirección</h4>
+                                                    <p th:text="${establecimiento.direccion + ', ' + establecimiento.ciudad + ', ' + establecimiento.provincia + ', ' + establecimiento.pais}"></p>
+                                                </div>
+                                            </div><!-- End Info Item -->
+                            
+                                            <div class="property-info-item">
+                                                <i class="bi bi-phone flex-shrink-0"></i>
+                                                <div>
+                                                    <h4>Teléfono</h4>
+                                                    <p th:text="${establecimiento.telefono}"></p>
+                                                </div>
+                                            </div><!-- End Info Item -->
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-4">
+                                        <div class="contact">
+                                            <div class="property-info-item">
+                                                <i class="bi bi-compass flex-shrink-0"></i>
+                                                <div>
+                                                    <h4>Código postal</h4>
+                                                    <p th:text="${establecimiento.codigoPostal}"></p>
+                                                </div>
+                                            </div><!-- End Info Item -->
+                            
+                                            <div class="property-info-item">
+                                                <i class="bi bi-envelope flex-shrink-0"></i>
+                                                <div>
+                                                    <h4>Correo Electrónico</h4>
+                                                    <p th:text="${establecimiento.email}"></p>
+                                                </div>
+                                            </div><!-- End Info Item -->
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-4">
+                                        <div class="contact">
+                                            <div class="property-info-item">
+                                                <i class="bi bi-card-checklist flex-shrink-0"></i>
+                                                <div>
+                                                    <h4>Mascotas aceptadas</h4>
+                                                    <p th:text="${establecimiento.mascotasAceptadas}"></p>
+                                                </div>
+                                            </div><!-- End Info Item -->
+                            
+                                            <div class="property-info-item">
+                                                <i class="bi bi-trophy flex-shrink-0"></i>
+                                                <div>
+                                                    <h4>Servicios ofrecidos</h4>
+                                                    <p th:text="${establecimiento.serviciosOfrecidos}"></p>
+                                                </div>
+                                            </div><!-- End Info Item -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+    
+                    <div class="col-md-10 offset-md-1">
+                        <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-video-tab" data-bs-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Reservar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-plans-tab" data-bs-toggle="pill" href="#pills-plans" role="tab" aria-controls="pills-plans" aria-selected="false">Ubicación</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="pills-map-tab" data-bs-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map" aria-selected="false">Fotos</a>
+                        </li> -->
+                        </ul>
+                        <!-- Seccion de registro de reservas realizadas en este establecimiento-->
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-video"
+          role="tabpanel"
+          aria-labelledby="pills-video-tab"
+        >
+          <!-- ======= RESERVAS FORMULARIO ======= -->
+          <div id="contact" class="contact">
+            <form
+              th:action="@{/reservas_Duenos}"
+              th:object="${reserva}"
+              method="post"
+              class="formulario-form"
+              id="for"
+            >
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label>Nombre del cliente:</label>
+                  <input
+                    type="text"
+                    th:field="*{nombreCliente}"
+                    class="form-control"
+                    placeholder="Nombre completo"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <label>Número de teléfono:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{telefono}"
+                    placeholder="Teléfono"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label>Tipo de mascota:</label>
+                  <select class="form-control" th:field="*{mascota}" required>
+                    <option value="">Seleccione el tipo de mascota</option>
+                    <option value="Perro">Perro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Conejo">Conejo</option>
+                    <option value=" Roedor">Roedor</option>
+                    <option value=" Pajaro">Pajaro</option>
+                    <option value=" Reptil">Reptil</option>
+                    <option value="Pez">Pez</option>
+                    <option value="Huron">Huron</option>
+                    <option value="Tortuga">Tortuga</option>
+                  </select>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>Número de asistentes:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{asistentes}"
+                    placeholder="Número de asistentes"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="date">Fecha de reserva:</label>
+                  <input type="text" th:field="*{fecha}" class="form-control" id="fe" required />
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <label>Hora de reserva:</label>
+                  <input type="text" class="form-control" th:field="*{hora}" required />
+                </div>
+              </div>
+              <input type="hidden" name="id" th:value="${id}" />
+              <div class="form-group mt-3">
+                <label for="special-requests">Solicitudes especiales:</label>
+                <textarea
+                  class="form-control"
+                  th:field="*{solicitudes}"
+                  rows="5"
+                  placeholder="Solicitudes especiales (opcional)"
+                ></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Cargando</div>
+                <div class="error-message"></div>
+                <div class="sent-message">¡Tu reserva ha sido procesada. Gracias!</div>
+              </div>
+              <div class="text-center"><button type="submit">Reservar</button></div>
+            </form>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
+          <div id="map" style="height: 400px;">         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+      
+        <!-- ======= VALORACIONES ESTABLECIMIENTO ======= -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+              <div class="title-box-d">
+                <h3 class="title-d">Valoraciones</h3>
+              </div>
+              <div class="box-comments">
+                <ul class="list-comments">
+
+                    <li>
+                        <div class="comment-avatar">
+                          <!-- SI CONSEGUIMOS PONER FOT>OS A LOS USUARIOS -->
+                          <!-- <img src="assets/img/testimonials/testimonials-4.jpg" alt="" /> -->
+                        </div>
+                        <div class="comment-details">
+                          <tr th:each="Valoraciones: ${valoraciones}">
+                            <td>
+                              <div class="stars" style="display: inline-block">
+                              <h4 class="comment-author"><span class="comment-author" th:text="${Valoraciones.usuario}" style="display: inline-block"></span></h4>
+                                <div style="display: flex;">
+                                  <span th:text="${Valoraciones.puntuacion}" style="display: inline-block"></span>
+                                  <span th:id="'stars-' + ${Valoraciones.id}" th:data-value="${Valoraciones.puntuacion}"></span>
+                                </div>
+                                </div>
+                                <h5><p class="comment-description">
+                                  <strong th:text="${Valoraciones.titulo}"></strong>
+                                </p></h5>
+                                <p class="comment-description" th:text="${Valoraciones.comentario}"></p>
+                                </br>
+                            </td>
+                          </tr>
+                        </div>
+                      </li>
+
+                  <!-- <li>
+                    <div class="comment-avatar">
+                      <img src="assets/img/testimonials/testimonials-4.jpg" alt="" />
+                    </div>
+                    <div class="comment-details">
+                      <h4 class="comment-author">Patricia Pérez</h4>
+                      <span>
+                        <div class="stars" style="display: inline-block">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        23 Oct 2023
+                      </span>
+
+                      <p class="comment-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit,
+                        provident cumque ipsam temporibus maiores quae natus libero optio.
+                      </p>
+                    </div>
+                  </li> -->
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- ======= VALORAR ESTABLECIMIENTO ======= -->
+      <section class="news-single2 nav-arrow-b">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+              <div class="form-comments">
+                <div class="title-box-d">
+                  <h3 class="title-d">Deja tu valoración</h3>
+                </div>
+                <div id="contact" class="contact">
+                  <form
+                    th:action="@{/valorarEstablecimiento_Dueno}"
+                    th:object="${valoracion}"
+                    method="post"
+                    role="form"
+                    class="formulario-form"
+                  >
+                    <input type="hidden" name="id" th:value="${id}" />
+                    <div class="form-group mt-3">
+                      <label for="titulo">Título de la valoración:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        th:field="*{titulo}"
+                        id="titulo"
+                        placeholder="Título de la valoración"
+                        required
+                      />
+                    </div>
+                    <div class="form-group mt-3">
+                      <label for="comentario">Comentario de la valoración:</label>
+                      <textarea
+                        class="form-control"
+                        th:field="*{comentario}"
+                        rows="5"
+                        placeholder="Comentario de la valoración"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                      <label for="rating">Puntuación del establecimiento:</label>
+                      <br />
+                      <br />
+                      <div class="rating">
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star5"
+                          name="rating"
+                          value="5"
+                          required
+                        />
+                        <label for="star5" title="5 stars">5 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star4.5"
+                          name="rating"
+                          value="4.5"
+                          required
+                        />
+                        <label for="star4.5" title="4.5 stars">4.5 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star4"
+                          name="rating"
+                          value="4"
+                          required
+                        />
+                        <label for="star4" title="4 stars">4 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star3.5"
+                          name="rating"
+                          value="3.5"
+                          required
+                        />
+                        <label for="star3.5" title="3.5 stars">3.5 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star3"
+                          name="rating"
+                          value="3"
+                          required
+                        />
+                        <label for="star3" title="3 stars">3 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star2.5"
+                          name="rating"
+                          value="2.5"
+                          required
+                        />
+                        <label for="star2.5" title="2.5 stars">2.5 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star2"
+                          name="rating"
+                          value="2"
+                          required
+                        />
+                        <label for="star2" title="2 stars">2 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star1.5"
+                          name="rating"
+                          value="1.5"
+                          required
+                        />
+                        <label for="star1.5" title="1.5 stars">1.5 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star1"
+                          name="rating"
+                          value="1"
+                          required
+                        />
+                        <label for="star1" title="1 stars">1 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star0.5"
+                          name="rating"
+                          value="0.5"
+                          required
+                        />
+                        <label for="star0.5" title="0.5 stars">0.5 </label>
+                        <input
+                          type="radio"
+                          th:field="*{puntuacion}"
+                          id="star0"
+                          name="rating"
+                          value="0"
+                          required
+                        />
+                        <label for="star0" title="0 stars">0 </label>
+                      </div>
+                    </div>
+
+                    <div class="my-3">
+                      <div class="loading">Cargando</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">¡Tu valoración ha sido enviada. Gracias!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Enviar valoración</button></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seccion de registro de reservas realizadas en este establecimiento-->
+      <section class="news-single3 nav-arrow-b">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+              <div class="form-comments">
+                <div class="title-box-d">
+                  <h3 class="title-d">Reservas realizadas</h3>
+                </div>
+                <div id="contact" class="contact">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre del cliente</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Tipo de mascota</th>
+                        <th scope="col">Número de asistentes</th>
+                        <th scope="col">Fecha de reserva</th>
+                        <th scope="col">Hora de reserva</th>
+                        <th scope="col">Solicitudes especiales</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="Reservas: ${reservas}">
+                        <td th:text="${Reservas.nombreCliente}"></td>
+                        <td th:text="${Reservas.telefono}"></td>
+                        <td th:text="${Reservas.mascota}"></td>
+                        <td th:text="${Reservas.asistentes}"></td>
+                        <td th:text="${Reservas.fecha}"></td>
+                        <td th:text="${Reservas.hora}"></td>
+                        <td th:text="${Reservas.solicitudes}"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <!-- End #main -->
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+
+    <script>
+      function initMap() {
+        console.log("initMap started");
+
+        const establecimientoId = "[[${establecimiento.id}]]";
+        const establecimientoDireccion = "[[${establecimiento.direccion}]]";
+        const establecimientoCiudad = "[[${establecimiento.ciudad}]]";
+        const establecimientoProvincia = "[[${establecimiento.provincia}]]";
+        const establecimientoPais = "[[${establecimiento.pais}]]";
+        const address =
+          establecimientoDireccion +
+          ", " +
+          establecimientoCiudad +
+          ", " +
+          establecimientoProvincia +
+          ", " +
+          establecimientoPais;
+
+        const geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({ address: address }, (results, status) => {
+          if (status === "OK") {
+            const location = results[0].geometry.location;
+
+            // Center the map around the geocoded location
+            const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 16,
+              center: location,
+            });
+
+            // Create a marker at the geocoded location
+            const marker = new google.maps.Marker({
+              position: location,
+              map: map,
+            });
+          } else {
+            console.error("Geocoding failed for " + address + ": " + status);
+          }
+        });
+      }
+    </script>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        document.querySelectorAll('[id^="stars-"]').forEach(function(stars) {
+        var rating = parseFloat(stars.dataset.value);
+        for (var i = 1; i <= 5; i++) {
+            var star = document.createElement('i');
+            star.className = 'bi ' + (rating >= i ? 'bi-star-fill' : rating >= i - 0.5 ? 'bi-star-half' : 'bi-star');
+            stars.appendChild(star);
+        }
+        });
+        /*]]>*/
+    </script>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      document.querySelectorAll('[id^="est-stars-"]').forEach(function(stars) {
+          var rating = parseFloat(stars.dataset.value);
+          for (var i = 1; i <= 5; i++) {
+              var star = document.createElement('i');
+              star.className = 'bi ' + (rating >= i ? 'bi-star-fill' : rating >= i - 0.5 ? 'bi-star-half' : 'bi-star');
+              stars.appendChild(star);
+          }
+      });
+      /*]]>*/
+      </script>
+
+  </body>
+</html>

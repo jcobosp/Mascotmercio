@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <link href="assets/css/error.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h5>Error al crear el establecimiento</h5>
+    <h1>OOPS</h1>
+    <h1></h1>
+    <div class="box">
+      <span></span><span></span> <span></span><span></span>
+      <span></span>
+    </div>
+    <div class="box">
+      <span></span><span></span> <span></span><span></span>
+      <span></span>
+    </div>
+    <p>
+      Parece que tus datos no son válidos. Por favor,
+      <br />
+      <a href="registrarEstablecimiento_Dueno"> inténtalo de nuevo</a>
+      <!-- no funciona -->
+      o vuelve más tarde.
+    </p>
+
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

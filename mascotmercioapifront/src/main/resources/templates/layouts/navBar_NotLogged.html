@@ -1,0 +1,28 @@
+<div th:fragment="navBar_NotLogged">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index_NotLogged" class="logo d-flex align-items-center">
+        <h1>Mascotmercio</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index_NotLogged" class="active">Inicio</a></li>
+          <li><a href="acercaDe_NotLogged">Acerca de</a></li>
+          <li><a href="mapa_NotLogged">Mapa</a></li>
+          <li>
+            <a href="establecimientos_NotLogged">Establecimientos</a>
+          </li>
+          <li>
+            <a class="register" href="registrarse">Registrarse</a>
+          </li>
+          <li>
+            <a class="ini-sesion" href="loginRedirect">Iniciar Sesión</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

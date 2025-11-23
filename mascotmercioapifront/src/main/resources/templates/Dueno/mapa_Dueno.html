@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head > 
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Enlace al Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+       <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrUPPlzcgYMMw0C2IbLwo6qHMZP4UgaMQ&callback=initMap">
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrUPPlzcgYMMw0C2IbLwo6qHMZP4UgaMQ&libraries=places&callback=initMap" async defer></script>
+
+       <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+       <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+       <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+       <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+       <script src="assets/vendor/aos/aos.js"></script>
+
+       <script src="assets/js/main.js"></script>
+
+
+  </head> 
+   <body>
+    <div th:replace="~{layouts/navBar_Dueno :: navBar_Dueno}"></div>
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div
+          class="page-header d-flex align-items-center"
+          style="background-image: url('assets/img/mascotas/header-map.png')"
+        >
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Explora nuevos destinos</h2>
+                <p>
+                  ¡Descubre emocionantes lugares para visitar con tu compañero peludo de aventuras! Explora
+                  zonas nuevas cerca de ti en busca de nuevos comercios que descubrir con tu animal de
+                  compañía. Encuéntra el lugar perfecto donde tanto tú como tu mascota podeis pasar un tiempo
+                  maravilloso juntos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="index_Cliente">Inicio</a></li>
+              <li>Mapa</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <span>Mapa</span>
+            <h2>Mapa</h2>
+            <p>¿Buscas un establecimiento? ¡Encuentralo en el mapa!</p>
+          </div>
+
+
+          <div id="map" style="height: 400px;">
+            
+          </div>
+         
+          
+
+          <div class="row gy-4 mt-4">
+            <div class="col-lg-4">
+              <div class="info-item d-flex">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h4>Dirección:</h4>
+                  <div th:if="${establecimiento.direccion != null}">
+                  <p th:text="${establecimiento.direccion + ', ' + establecimiento.ciudad + ', ' + establecimiento.provincia + ', ' + establecimiento.pais}" id="direccionEstablecimiento"></p>
+                  </div>
+                </div>
+              </div>
+              <!-- End Info Item -->
+
+              <div class="info-item d-flex">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h4>Correo Electrónico:</h4>
+                  <p th:text="${establecimiento.email}" id="correoEstablecimiento"></p>
+                </div>
+              </div>
+              <!-- End Info Item -->
+
+              <div class="info-item d-flex">
+                <i class="bi bi-phone flex-shrink-0"></i>
+                <div>
+                  <h4>Teléfono:</h4>
+                  <p th:text="${establecimiento.telefono}" id="telefonoEstablecimiento"></p>
+                </div>
+              </div>
+              <!-- End Info Item -->
+
+              <div class="info-item d-flex">
+                <i class="bi bi-card-checklist flex-shrink-0"></i>
+                <div>
+                  <h4>Mascotas aceptadas</h4>
+                  <p th:text="${establecimiento.mascotasAceptadas}" id="mascotasEstablecimiento"></p>
+                </div>
+              </div> <!-- End Info Item -->
+              
+              <div th:if="${establecimiento.direccion != null}" class="info-item d-flex">
+                <i class="bi bi-info-circle flex-shrink-0"></i>
+                <div>
+                  <h4>Información del local</h4>
+                  <p>Obtén más detalles sobre el local.</p>
+                  <br>
+                  <!-- <a href="detallesEstablecimiento_Cliente" class="btn btn-primary">Ver información</a> -->
+                  <a th:href="@{/detallesEstablecimiento_Dueno(id=${establecimiento.id})}" class="btn btn-primary" id="detailLink">Ver información</a>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-8">
+              <div id="contact" class="contact">
+                <form
+                th:action="@{/reservas_Duenos?establecimientoId=__${establecimiento.id}__}"
+                th:object="${reserva}"
+                  method="post"
+                  class="formulario-form"
+                  id="for"
+                >
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label>Nombre del cliente:</label>
+                      <input
+                        type="text"
+                        th:field="*{nombreCliente}"
+                        class="form-control"
+                        placeholder="Nombre completo"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <label>Número de teléfono:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        th:field="*{telefono}"
+                        placeholder="Teléfono"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label>Tipo de mascota:</label>
+                      <select class="form-control" th:field="*{mascota}" required>
+                        <option value="">Seleccione el tipo de mascota</option>
+                          <option value="Perro">Perro</option>
+                          <option value="Gato">Gato</option>
+                          <option value=" Conejo">Conejo</option>
+                          <option value=" Roedor">Roedor</option>
+                          <option value=" Pajaro">Pajaro</option>
+                          <option value=" Reptil">Reptil</option>
+                          <option value="Pez">Pez</option>
+                          <option value="Huron">Huron</option>
+                          <option value="Tortuga">Tortuga</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label>Número de asistentes:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        th:field="*{asistentes}"
+                        placeholder="Número de asistentes"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="date">Fecha de reserva:</label>
+                      <input type="text" th:field="*{fecha}" class="form-control" id="fe" required />
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <label>Hora de reserva:</label>
+                      <input type="text" class="form-control" th:field="*{hora}" required />
+                    </div>
+                  </div>
+                  <input type="hidden" name="id" th:value="${id}" />
+                  <div class="form-group mt-3">
+                    <label for="special-requests">Solicitudes especiales:</label>
+                    <textarea
+                      class="form-control"
+                      th:field="*{solicitudes}"
+                      rows="5"
+                      placeholder="Solicitudes especiales (opcional)"
+                    ></textarea>
+                  </div>
+                  <div class="my-3">
+                    <div class="loading">Cargando</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">¡Tu reserva ha sido procesada. Gracias!</div>
+                  </div>
+                  <div class="text-center" th:if="${establecimiento.direccion != null}"><button type="submit">Reservar</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Contact Form -->
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <script>
+
+      function initMap() {
+
+        console.log('initMap started');
+    
+        const myLocation = { lat: 43.36833874284659, lng: -8.409125629700394 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 16,
+            center: myLocation,
+        });
+    
+    
+    
+    
+    
+        const geocoder = new google.maps.Geocoder();
+    
+    
+        fetch('/establecimientosMapas')
+            .then(response => response.json())
+            .then(establecimientos => {
+                console.log(establecimientos);
+                establecimientos.forEach(establecimiento => {
+                    console.log(establecimiento);
+                    console.log(establecimiento.direccion);
+                    geocodeAddressAddMarker(establecimiento.direccion + ", " + establecimiento.ciudad + ", " + establecimiento.provincia + ", " + establecimiento.pais, establecimiento);
+                });
+            })
+            .catch(error => console.error('Error fetching establecimientos:', error));
+    
+        function geocodeAddressAddMarker(address, establecimiento) {
+            geocoder.geocode({ 'address': address }, (results, status) => {
+                if (status === 'OK') {
+                    let location = results[0].geometry.location;
+                    let marker = new google.maps.Marker({ 
+                        position: location,
+                        map: map,
+                        title: establecimiento.nombre,
+                    });
+    
+                    marker.establecimientoId = establecimiento.id;
+                    console.log(marker);
+                    console.log(marker.establecimientoId);
+    
+                    marker.addListener('click', () => {
+                        console.log("Marker clicked. Establishment ID:", marker.establecimientoId);
+                        const direccionEstablecimiento = `${establecimiento.direccion}, ${establecimiento.ciudad}, ${establecimiento.provincia}, ${establecimiento.pais}`;
+
+                       // document.getElementById("direccionEstablecimiento").textContent = direccionEstablecimiento;
+                       // document.getElementById("correoEstablecimiento").textContent = establecimiento.pais;
+                       // document.getElementById("telefonoEstablecimiento").textContent = establecimiento.pais;
+                       // document.getElementById("mascotasEstablecimiento").textContent = establecimiento.pais;
+        
+                        //document.getElementById("detailForm").href = '/detallesEstablecimiento_Dueno?id=' + marker.establecimientoId;
+                        window.location.href = `/mapa_Dueno?id=${marker.establecimientoId}`;
+
+                    });
+                } else {
+                    console.error('Geocoding failed for ' + address + ': ' + status);
+                }
+            });
+        }
+    }
+
+  </script>
+  </body>
+</html>
+

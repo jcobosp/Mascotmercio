@@ -1,0 +1,35 @@
+<div th:fragment="navBar_Cliente">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index_Cliente" class="logo d-flex align-items-center">
+        <h1>Mascotmercio</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index_Cliente" class="active">Inicio</a></li>
+          <li><a href="acercaDe_Cliente">Acerca de</a></li>
+          <li><a href="mapa_Cliente">Mapa</a></li>
+          <li><a href="establecimientos_Cliente">Establecimientos</a></li>
+          <li>
+            <form action="/perfil_Cliente" method="GET">
+              <a href="/perfil_Cliente">Perfil</a>
+            </form>
+          </li>
+          <li>
+            <form id="logoutForm" th:action="@{/logout}" method="POST">
+              <a
+                href="index_NotLogged"
+                onclick="document.getElementById('logoutForm').submit(); return false;"
+                class="ini-sesion"
+                >Cerrar sesión</a
+              >
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

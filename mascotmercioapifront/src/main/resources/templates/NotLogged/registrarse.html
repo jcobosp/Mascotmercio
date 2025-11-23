@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+
+  <body>
+    <div th:replace="~{layouts/navBar_NotLogged :: navBar_NotLogged}"></div>
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div
+          class="page-header d-flex align-items-center"
+          style="background-image: url('assets/img/mascotas/registrarse.png')"
+        >
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Registrarse</h2>
+                <p>
+                  Únete a nuestra comunidad para disfrutar de beneficios exclusivos. Registrándote tendrás
+                  acceso a una amplia selección de locales adaptados a tus mascotas y gustos de ocio. Además,
+                  como propietario de un local, te ofrecemos herramientas intuitivas para administrar y
+                  promocionar tu negocio de manera efectiva.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="index_NotLogged">Inicio</a></li>
+              <li>Registrarse</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+
+      <!-- ======= Get a Quote Section ======= -->
+      <section id="ini-sesion" class="ini-sesion">
+        <div class="container" data-aos="fade-up">
+          <div class="row g-0">
+            <div
+              class="col-lg-5 quote-bg"
+              style="background-image: url(assets/img/mascotas/fondo-formulario-registro.png)"
+            ></div>
+            <div class="col-lg-7">
+              <form
+                th:action="@{/registrarse}"
+                th:object="${usuario}"
+                method="post"
+                enctype="multipart/form-data"
+                class="formulario-form"
+              >
+                <h3>Regístrate</h3>
+                <p>
+                  Únete a nuestra comunidad pet friendly registrándote a continuación. Completa el formulario
+                  con tus datos personales para acceder a todos los beneficios de Mascotmercio.
+                </p>
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      th:field="*{nombreUsuario}"
+                      class="form-control"
+                      placeholder="Nombre de usuario"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="password"
+                      th:field="*{contraseña}"
+                      class="form-control"
+                      placeholder="Contraseña"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      th:field="*{nombreCompleto}"
+                      class="form-control"
+                      placeholder="Nombre completo"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      th:field="*{email}"
+                      class="form-control"
+                      placeholder="Correo electrónico"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      th:field="*{telefono}"
+                      class="form-control"
+                      placeholder="Teléfono"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      th:field="*{ciudad}"
+                      class="form-control"
+                      placeholder="Ciudad"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <select class="form-select" name="user_type" required>
+                      <option value="" disabled selected>Selecciona tu tipo de usuario</option>
+                      <option value="cliente">Cliente</option>
+                      <option value="dueño_local">Dueño de local</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label">Subir foto de perfil</label>
+                    <input
+                      type="file"
+                      name="imagenPerfil"
+                      class="form-control form-control-lg"
+                      accept="image/*"
+                      style="width: 100%"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <textarea
+                      class="form-control"
+                      th:field="*{descripcion}"
+                      name="message"
+                      rows="6"
+                      id="descripcion"
+                      placeholder="Descripción del usuario"
+                    ></textarea>
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <div class="loading">Cargando</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">
+                      Tu solicitud de registro ha sido enviada exitosamente. ¡Gracias por unirte a
+                      Mascotmercio!
+                    </div>
+                    <button type="submit">Registrarse</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Quote Form -->
+          </div>
+        </div>
+      </section>
+      <!-- End Get a Quote Section -->
+    </main>
+    <!-- End #main -->
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

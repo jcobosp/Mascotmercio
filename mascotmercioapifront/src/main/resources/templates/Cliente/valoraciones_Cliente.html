@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+  <body>
+    <div th:replace="~{layouts/navBarFija_Cliente :: navBarFija_Cliente}"></div>
+
+    <main id="main" class="main-page">
+      <section class="news-single nav-arrow-b" th:fragment="valoraciones_Cliente">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+              <div class="title-box-d">
+                <h3 class="title-d">Valoraciones</h3>
+              </div>
+              <div class="box-comments">
+                <ul class="list-comments">
+                  <li>
+                    <div class="comment-avatar">
+                      <img src="assets/img/testimonials/testimonials-3.jpg" alt="" />
+                    </div>
+                    <div class="comment-details">
+                      <tr th:each="Valoraciones: ${valoraciones}">
+                        <td>
+                          <h4><strong th:text="${Valoraciones.titulo}"></strong></h4>
+                          <p class="comment-description" th:text="${Valoraciones.comentario}"></p>
+                          <span>
+                            <div class="stars" style="display: inline-block">
+                              <span th:text="${Valoraciones.puntuacion}" style="display: inline-block"></span>
+                              <i class="bi bi-star-fill"></i>
+                              <span
+                                class="comment-author"
+                                th:text="${Valoraciones.usuario}"
+                                style="display: inline-block"
+                              ></span>
+                            </div>
+                          </span>
+                        </td>
+                      </tr>
+                      <!-- <div class="reply"><button type="submit">Responder</button></div> -->
+                    </div>
+                  </li>
+                  <li class="comment-children">
+                    <div class="comment-avatar">
+                      <img src="assets/img/testimonials/testimonials-1.jpg" alt="" />
+                    </div>
+                    <div class="comment-details">
+                      <h4 class="comment-author">Oliver Colmenares</h4>
+                      <span>18 Sep 2023</span>
+                      <p class="comment-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit,
+                        provident cumque ipsam temporibus maiores quae.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="comment-avatar">
+                      <img src="assets/img/testimonials/testimonials-4.jpg" alt="" />
+                    </div>
+                    <div class="comment-details">
+                      <h4 class="comment-author">Patricia Pérez</h4>
+                      <span>
+                        <div class="stars" style="display: inline-block">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        23 Oct 2023
+                      </span>
+
+                      <p class="comment-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit,
+                        provident cumque ipsam temporibus maiores quae natus libero optio.
+                      </p>
+                      <!-- <div class="reply"><button type="submit">Responder</button></div> -->
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

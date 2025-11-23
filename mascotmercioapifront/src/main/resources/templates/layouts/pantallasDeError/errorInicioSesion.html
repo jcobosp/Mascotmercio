@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <link href="assets/css/error.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h5>Error al introducir tus credenciales</h5>
+    <h1>OOPS</h1>
+    <h1></h1>
+    <div class="box">
+      <span></span><span></span> <span></span><span></span>
+      <span></span>
+    </div>
+    <div class="box">
+      <span></span><span></span> <span></span><span></span>
+      <span></span>
+    </div>
+    <p>
+      Parece que tus credenciales son incorrectas. Por favor,
+      <br />
+      <a href="iniciarSesion"> inténtalo de nuevo</a>
+      o vuelve más tarde.
+    </p>
+
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

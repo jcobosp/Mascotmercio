@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+
+  <body>
+    <div th:replace="~{layouts/navBar_Cliente :: navBar_Cliente}"></div>
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div
+          class="page-header d-flex align-items-center"
+          style="background-image: url('assets/img/mascotas/header-establecimiento.png')"
+        >
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Establecimientos</h2>
+                <p>
+                  Descubre todos los locales asociados a Mascotmercio o registra tu propio negocio para
+                  conectar con amantes de las mascotas y atraer nuevos clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="index_Cliente">Inicio</a></li>
+              <li>Establecimientos</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+
+      <!-- =======  Section ======= -->
+      <section id="establecimientos" class="section-with-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Establecimientos registrados</h2>
+            <p>Aquí tienes algunos establecimientos donde tu mascota es bienvenida</p>
+          </div>
+
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6" th:each="entry : ${establecimientosConImagenes}">
+              <div class="establecimientos">
+                <div class="establecimientos-img" style="width: 354px; height: 266.5px; overflow: hidden">
+                  <img
+                    th:if="${entry.value != null}"
+                    th:src="'data:image/jpeg;base64,' + ${entry.value}"
+                    alt="Foto de perfil"
+                    class="img-fluid"
+                    style="object-fit: cover; width: 100%; height: 100%"
+                  />
+                </div>
+                <h3><a th:if="${entry.key != null}" th:text="${entry.key.nombre}"></a></h3>
+                <div style="display: flex; align-items: baseline">
+                  <p
+                    th:if="${entry.key != null}"
+                    th:text="${entry.key.estrellas}"
+                    style="margin-right: 0"
+                  ></p>
+                  <div class="stars" style="margin-left: -30px">
+                    <span
+                      th:id="'est-stars-' + ${entry.key.id}"
+                      th:if="${entry.key != null}"
+                      th:data-value="${entry.key.estrellas}"
+                    ></span>
+                  </div>
+                </div>
+                <p
+                  th:if="${entry.key != null}"
+                  th:text="${entry.key.descripcion}"
+                  style="
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  "
+                ></p>
+                <div class="text-center">
+                  <a
+                    th:if="${entry.key != null}"
+                    th:href="@{/detallesEstablecimiento_Cliente(id=${entry.key.id})}"
+                    class="btn btn-primary btn-sm"
+                    >Más información</a
+                  >
+                </div>
+                <br />
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="text-center">
+              <form action="iniciarSesion" method="get">
+                <button type="submit" class="btn-iniciarsesion" style="background-color: rgba(255, 255, 255, 0.8); color: rgba(13, 66, 255, 0.8); border: 2px solid rgba(13, 66, 255, 0.8);">
+                  ¡Inicia sesión para descubrir todos los establecimientos!</button>
+              </form>
+            </div> -->
+          <br />
+          <div class="text-center">
+            <form action="iniciarSesion" method="get">
+              Para poder registrar tu establecimiento debes iniciar sesión en Mascotmercio como Dueño de
+              establecimiento.
+              <button type="submit" id="registraEstablecimiento">¡Registra tu propio establecimiento!</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- End establecimientos Section -->
+    </main>
+    <!-- End #main -->
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      document.querySelectorAll('[id^="est-stars-"]').forEach(function (stars) {
+        var rating = parseFloat(stars.dataset.value);
+        for (var i = 1; i <= 5; i++) {
+          var star = document.createElement("i");
+          star.className =
+            "bi " + (rating >= i ? "bi-star-fill" : rating >= i - 0.5 ? "bi-star-half" : "bi-star");
+          stars.appendChild(star);
+        }
+      });
+      /*]]>*/
+    </script>
+  </body>
+</html>

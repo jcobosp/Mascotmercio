@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+
+  <body>
+    <div th:replace="~{layouts/navBar_NotLogged :: navBar_NotLogged}"></div>
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div
+          class="page-header d-flex align-items-center"
+          style="background-image: url('assets/img/mascotas/header-establecimiento.png')"
+        >
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Establecimientos</h2>
+                <p>
+                  Descubre todos los locales asociados a Mascotmercio o registra tu propio negocio para
+                  conectar con amantes de las mascotas y atraer nuevos clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="index_NotLogged">Inicio</a></li>
+              <li>Establecimientos</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+
+      <!-- =======  Section ======= -->
+      <section id="establecimientos" class="section-with-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Establecimientos registrados</h2>
+            <p>Aquí tienes algunos establecimientos donde tu mascota es bienvenida</p>
+          </div>
+
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6">
+              <div class="establecimientos">
+                <div class="establecimientos-img">
+                  <img
+                    src="assets/img/mascotas/restaurante-perro-chicas.png"
+                    alt="establecimientos 1"
+                    class="img-fluid"
+                  />
+                </div>
+                <h3><a>Bar canino amigable</a></h3>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  ¡Un bar acogedor donde puedes disfrutar de un refresco mientras tu mascota socializa con
+                  otras mascotas!
+                </p>
+                <div class="text-center">
+                  <form action="loginRedirect">
+                    <button type="submit" class="btn btn-primary btn-sm">Más información</button>
+                  </form>
+                </div>
+                <br />
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="establecimientos">
+                <div class="establecimientos-img">
+                  <img
+                    src="assets/img/mascotas/boutique-mascota.png"
+                    alt="establecimientos 2"
+                    class="img-fluid"
+                  />
+                </div>
+                <h3><a>Boutique Pet-Friendly</a></h3>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  ¡Descubre ropa y accesorios para ti y tu mascota en esta boutique donde son bienvenidos los
+                  animales!
+                </p>
+                <div class="text-center">
+                  <form action="loginRedirect">
+                    <button type="submit" class="btn btn-primary btn-sm">Más información</button>
+                  </form>
+                </div>
+                <br />
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="establecimientos">
+                <div class="establecimientos-img">
+                  <img
+                    src="assets/img/mascotas/libreria-mascotas.png"
+                    alt="establecimientos 3"
+                    class="img-fluid"
+                  />
+                </div>
+                <h3><a>Librería que permite mascotas</a></h3>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill-half-full"></i>
+                </div>
+                <p>
+                  ¡Explora una gran selección de libros mientras tu mascota te acompaña en esta librería
+                  pet-friendly!
+                </p>
+                <div class="text-center">
+                  <form action="loginRedirect">
+                    <button type="submit" class="btn btn-primary btn-sm">Más información</button>
+                  </form>
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="text-center">
+              <form action="loginRedirect">
+                <button
+                  type="submit"
+                  class="btn-iniciarsesion"
+                  style="
+                    background-color: rgba(255, 255, 255, 0.8);
+                    color: rgba(13, 66, 255, 0.8);
+                    border: 2px solid rgba(13, 66, 255, 0.8);
+                  "
+                >
+                  ¡Inicia sesión para descubrir todos los establecimientos!
+                </button>
+              </form>
+            </div>
+            <br />
+            <div class="text-center">
+              <form action="loginRedirect">
+                <button type="submit" id="registraEstablecimiento">
+                  ¡Registra tu propio establecimiento!
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End establecimientos Section -->
+    </main>
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>

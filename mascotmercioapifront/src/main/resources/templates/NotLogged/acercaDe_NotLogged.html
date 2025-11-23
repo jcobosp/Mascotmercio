@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="~{layouts/head :: head}"> </head>
+  <body>
+    <div th:replace="~{layouts/navBar_NotLogged :: navBar_NotLogged}"></div>
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div
+          class="page-header d-flex align-items-center"
+          style="background-image: url('assets/img/mascotas/header-acerca-de.png')"
+        >
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Acerca de Mascotmercio</h2>
+                <p>
+                  Somos apasionados por el bienestar de las mascotas y sus dueños.<br />
+                  En Mascotmercio, nos esforzamos por brindar la mejor experiencia al encontrar lugares que no
+                  solo acepten mascotas, sino que las traten con el amor y el respeto que se merecen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="index_NotLogged">Inicio</a></li>
+              <li>Acerca de</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="row gy-4">
+            <div class="col-lg-6 position-relative d-flex align-items-center order-lg-last order-first">
+              <img src="assets/img/mascotas/foto-video.png" class="img-fluid" alt="" />
+              <a href="https://www.error.com" class="glightbox play-btn"></a>
+            </div>
+            <div class="col-lg-6 content order-last order-lg-first">
+              <h3>Nuestra Misión</h3>
+              <p>
+                En Mascotmercio, nos dedicamos a encontrar los mejores establecimientos que ofrecen
+                experiencias memorables tanto para las mascotas como para sus dueños. Creemos en promover
+                lugares que compartan nuestros valores de amor, respeto y diversión para todos los miembros de
+                la familia, incluidos nuestros fieles amigos peludos.
+              </p>
+              <ul>
+                <li data-aos="fade-up" data-aos-delay="100">
+                  <i class="bi bi-diagram-3"></i>
+                  <div>
+                    <h5>Compromiso con la Calidad</h5>
+                    <p>
+                      Seleccionamos cuidadosamente cada establecimiento para garantizar que cumplan con los
+                      más altos estándares de calidad y bienestar animal.
+                    </p>
+                  </div>
+                </li>
+                <li data-aos="fade-up" data-aos-delay="200">
+                  <i class="bi bi-fullscreen-exit"></i>
+                  <div>
+                    <h5>Experiencias Únicas</h5>
+                    <p>
+                      Nuestro objetivo es ofrecer experiencias únicas y emocionantes para ti y tu mascota,
+                      donde puedan disfrutar juntos de momentos inolvidables.
+                    </p>
+                  </div>
+                </li>
+                <li data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-broadcast"></i>
+                  <div>
+                    <h5>Apoyo a la Comunidad Mascotmercio</h5>
+                    <p>
+                      Nos comprometemos a construir una comunidad donde los amantes de las mascotas puedan
+                      compartir sus experiencias, recomendaciones y consejos para disfrutar al máximo de la
+                      compañía de sus amigos peludos.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Us Section -->
+
+      <!-- ======= Stats Counter Section ======= -->
+      <section id="stats-counter" class="stats-counter pt-0">
+        <div class="container" data-aos="fade-up">
+          <div class="row gy-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="433"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Locales</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="1524"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Clientes</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="12"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Tipos de mascotas</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="7"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Países</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+          </div>
+        </div>
+      </section>
+      <!-- End Stats Counter Section -->
+
+      <!-- ======= Sección de Mascotas Aceptadas ======= -->
+      <section id="team" class="team pt-0">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <span>Mascotas Aceptadas</span>
+            <h2>Mascotas Aceptadas</h2>
+          </div>
+
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="member">
+                <img src="assets/img/mascotas/gato.png" class="img-fluid" alt="Gato" />
+                <div class="member-content">
+                  <h4>Gatos</h4>
+                  <p>
+                    Encuentra el lugar perfecto para ti y tu gato. Explora una variedad de establecimientos
+                    amigables con los felinos, desde cafeterías con terrazas hasta tiendas especializadas en
+                    productos para gatos.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Fin Mascota Aceptada -->
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="member">
+                <img src="assets/img/mascotas/perro.png" class="img-fluid" alt="Perro" />
+                <div class="member-content">
+                  <h4>Perros</h4>
+                  <p>
+                    Descubre lugares emocionantes para ti y tu perro. Encuentra parques, bares o restaurantes
+                    que ofrecen un ambiente cálido y acogedor para los dueños de perros, con áreas para juegos
+                    y agua fresca para tu mascota.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Fin Mascota Aceptada -->
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="member">
+                <img src="assets/img/mascotas/conejo.png" class="img-fluid" alt="Conejo" />
+                <div class="member-content">
+                  <h4>Conejos</h4>
+                  <p>
+                    Encuentra lugares seguros y tranquilos para disfrutar con tu conejo. Explora parques con
+                    zonas verdes y espacios amplios para que tu mascota pueda explorar mientras tú te relajas
+                    y disfrutas de la naturaleza.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Fin Mascota Aceptada -->
+
+            <div class="section-header">Entre muchas otras...</div>
+          </div>
+        </div>
+      </section>
+      <!-- Fin Sección de Mascotas Aceptadas -->
+    </main>
+    <div th:replace="~{layouts/footer :: footer}"></div>
+    <div th:replace="~{layouts/scripts :: scripts}"></div>
+  </body>
+</html>
