@@ -3,8 +3,6 @@
 Mascotmercio es una plataforma web diseñada para conectar **establecimientos pet-friendly** con usuarios que buscan lugares donde disfrutar de su tiempo libre junto a sus mascotas.  
 Ofrece una experiencia completa para clientes y dueños de locales, permitiendo **descubrir, valorar, reservar y gestionar** establecimientos aptos para mascotas.
 
-Este repositorio contiene una versión personal, profesional y completamente funcional del proyecto desarrollado en la ETSIT-UPM.
-
 ---
 
 ## 🚀 Funcionalidades principales
