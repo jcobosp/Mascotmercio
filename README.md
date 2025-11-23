@@ -207,16 +207,16 @@ Una vez arrancado tanto backend como frontend:
 
 ## Capturas de la plataforma
 
-Pestaña "Inicio":
+### Pestaña "Inicio":
 <img src="docs/screenshots/Inicio.png" width="750"/>
 
-Pestaña "Acerca de":
+### Pestaña "Acerca de":
 <img src="docs/screenshots/Acerca de.png" width="750"/>
 
-Pestaña "Mapa":
+### Pestaña "Mapa":
 <img src="docs/screenshots/Mapa.png" width="750"/>
 
-Pestaña "Establecimientos":
+### Pestaña "Establecimientos":
 <img src="docs/screenshots/Establecimientos.png" width="750"/>
 
 Para ver todas las pestañas y vivir la experiencia completa de la plataforma, siga los pasos descritos más arriba.
