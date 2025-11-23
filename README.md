@@ -1,13 +1,13 @@
-# 🐾 Mascotmercio – Plataforma de ocio pet-friendly
+# Mascotmercio – Plataforma de ocio pet-friendly
 
 Mascotmercio es una plataforma web diseñada para conectar **establecimientos pet-friendly** con usuarios que buscan lugares donde disfrutar de su tiempo libre junto a sus mascotas.  
 Ofrece una experiencia completa para clientes y dueños de locales, permitiendo **descubrir, valorar, reservar y gestionar** establecimientos aptos para mascotas.
 
 ---
 
-## 🚀 Funcionalidades principales
+## Funcionalidades principales
 
-### 👤 Roles de usuario
+### Roles de usuario
 #### **Cliente**
 - Buscar establecimientos en lista y mapa interactivo  
 - Filtrar locales por zona / código postal  
@@ -25,7 +25,7 @@ Ofrece una experiencia completa para clientes y dueños de locales, permitiendo 
 
 ---
 
-## 🗺️ Mapa interactivo
+## Mapa interactivo
 - Mapa integrado para explorar la oferta pet-friendly  
 - Acceso directo a cada establecimiento clicando en el mapa  
 - Filtros por zona  
@@ -33,7 +33,7 @@ Ofrece una experiencia completa para clientes y dueños de locales, permitiendo 
 
 ---
 
-## 🏪 Gestión de establecimientos
+## Gestión de establecimientos
 - Publicación de locales pet-friendly  
 - Edición de información: descripción, fotos, servicios, horarios  
 - Sistema de reseñas con puntuación y comentarios  
@@ -41,14 +41,14 @@ Ofrece una experiencia completa para clientes y dueños de locales, permitiendo 
 
 ---
 
-## 📝 Autenticación y gestión de cuentas
+## Autenticación y gestión de cuentas
 - Inicio de sesión seguro  
 - Registro con selección de rol  
 - Gestión completa del perfil personal  
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 ### **Backend (API REST) – `mascotmercioapiback`**
 - **Java 17**
@@ -79,28 +79,28 @@ Ofrece una experiencia completa para clientes y dueños de locales, permitiendo 
 
 ---
 
-## 📦 Requisitos previos
+## Requisitos previos
 
 Antes de ejecutar el proyecto, asegúrate de tener instalado:
 
-### ✔ Java JDK 17  
+### Java JDK 17  
 Recomendado: **Adoptium Temurin**  
 https://adoptium.net/temurin/releases?version=17
 
-### ✔ Git  
+### Git  
 https://git-scm.com/
 
-### ✔ Visual Studio Code (opcional)  
+### Visual Studio Code (opcional)  
 Extensiones recomendadas:  
 - **Extension Pack for Java**  
 - **Spring Boot Extension Pack**  
 - **Lombok Support** (si se añadiera más adelante)  
 
-📌 No es necesario instalar Maven, el proyecto incluye `mvnw`.
+No es necesario instalar Maven, el proyecto incluye `mvnw`.
 
 ---
 
-## 🔧 Instalación y ejecución
+## Instalación y ejecución
 
 El proyecto está dividido en dos módulos independientes:
 
@@ -111,7 +111,7 @@ mascotmercioapifront   → Frontend (Web)
 
 ---
 
-### 1️⃣ Clonar el repositorio
+### 1️. Clonar el repositorio
 
 ```bash
 git clone https://github.com/jcobosp/Mascotmercio
@@ -120,7 +120,7 @@ cd Mascotmercio
 
 ---
 
-## 2️⃣ Arrancar el backend
+## 2️. Arrancar el backend
 
 ```bash
 cd mascotmercioapiback
@@ -133,12 +133,7 @@ Cuando arranque verás:
 Tomcat started on port(s): 8080
 ```
 
-➡ Backend disponible en  
-**http://localhost:8080**
-
----
-
-## 3️⃣ Arrancar el frontend
+## 3️. Arrancar el frontend
 
 En otra terminal:
 
@@ -153,20 +148,15 @@ Verás algo como:
 Tomcat started on port(s): 8083
 ```
 
-➡ Interfaz web disponible en  
+## 4️. Acceder a la plataforma
+
+Una vez arrancado tanto backend como frontend:
+
 **http://localhost:8083**
 
 ---
 
-## 4️⃣ Acceder a la plataforma
-
-Una vez arrancado el frontend:
-
-👉 **http://localhost:8083**
-
----
-
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
 <details>
 <summary><strong>📁 Ver estructura completa del repositorio</strong></summary>
@@ -202,7 +192,7 @@ Una vez arrancado el frontend:
 
 ---
 
-## 💡 Notas para desarrolladores
+## Notas para desarrolladores
 
 - El backend y el frontend se ejecutan como **aplicaciones Spring Boot independientes**.  
 - El frontend se comunica con el backend mediante **servicios REST**.  
@@ -215,7 +205,7 @@ Una vez arrancado el frontend:
 
 ---
 
-## 📸 Capturas recomendadas
+## Capturas de la plataforma
 
 Crea la carpeta:
 
@@ -238,17 +228,3 @@ Ejemplo en README:
 ```md
 <img src="docs/screenshots/home.png" width="750"/>
 ```
-
----
-
-## 📄 Licencia
-
-Proyecto publicado con fines académicos y demostrativos.
-
----
-
-## 👨‍💻 Autor
-
-**Javier Cobos**  
-GitHub: https://github.com/jcobosp  
-Proyecto: https://github.com/jcobosp/Mascotmercio
