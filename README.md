@@ -207,24 +207,18 @@ Una vez arrancado tanto backend como frontend:
 
 ## Capturas de la plataforma
 
-Crea la carpeta:
+Pestaña "Inicio":
+<img src="docs/screenshots/Inicio.png" width="750"/>
 
-```
-/docs/screenshots
-```
+Pestaña "Acerca de":
+<img src="docs/screenshots/Acerca de.png" width="750"/>
 
-y añade imágenes de:
+Pestaña "Mapa":
+<img src="docs/screenshots/Mapa.png" width="750"/>
 
-- Página de inicio  
-- Mapa interactivo  
-- Lista de establecimientos  
-- Vista de cliente  
-- Vista de dueño  
-- Ficha de establecimiento  
-- Perfil de usuario  
+Pestaña "Establecimientos":
+<img src="docs/screenshots/Establecimientos.png" width="750"/>
 
-Ejemplo en README:
+Para ver todas las pestañas y vivir la experiencia completa de la plataforma, siga los pasos descritos más arriba.
 
-```md
-<img src="docs/screenshots/home.png" width="750"/>
 ```
